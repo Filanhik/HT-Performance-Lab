@@ -1,4 +1,10 @@
-name_file = input("Введите имя файла: ")
+import sys
+
+if len(sys.argv) == 2:
+    name_file = sys.argv[1]
+    
+else:
+    name_file = input("Введите имя файла: ")
 
 file = open(name_file)
 nums = []
