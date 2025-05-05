@@ -1,5 +1,12 @@
-n = int(input("Введите количество чисел (n): "))
-m = int(input("Введите длину шага (m): "))
+import sys
+
+if len(sys.argv) == 3:
+    n = int(sys.argv[1])
+    m = int(sys.argv[2])
+    
+else:
+    n = int(input("Введите количество чисел (n): "))
+    m = int(input("Введите длину шага (m): "))
 
 current_num = 1
 
@@ -17,4 +24,4 @@ while True:
 
     current_num = next_num
 
-print("Путь: ", path)
+print("Путь:", path)
