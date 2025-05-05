@@ -1,17 +1,23 @@
-name_file_circle = input("Введите файла с центром окружности и радиусом: ")
+import sys
 
+if len(sys.argv) == 3:
+    name_file_circle = sys.argv[1]
+    name_file_point = sys.argv[2]
+    
+else:
+    name_file_circle = input("Введите файла с центром окружности и радиусом: ")
+    name_file_point = input("Введите файл с координатами точек: ")
+    
 file_circle = open(name_file_circle)
-
+    
 pervay_stroka = file_circle.readline()
 x_centre, y_centre = map(float, pervay_stroka.split())
-
+    
 vtoray_stroka = file_circle.readline()
 radius = float(vtoray_stroka)
-
+    
 file_circle.close()
-
-name_file_point = input("Введите файл с координатами точек: ")
-
+    
 file_point = open(name_file_point)
 
 for i in file_point:
