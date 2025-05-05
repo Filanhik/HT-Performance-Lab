@@ -1,6 +1,16 @@
+import sys
 import json
 
-name_file_values = input("Введите файл со значениями: ")
+if len(sys.argv) == 4:
+    name_file_values = sys.argv[1]
+    name_file_tests = sys.argv[2]
+    name_file_output = sys.argv[3]
+    
+else:
+    name_file_values = input("Введите файл со значениями: ")
+    name_file_tests = input("Введите файл с тестами: ")
+    name_file_output = input("Введите файл для результатов: ")
+
 file_values = open(name_file_values)
 data = json.load(file_values)
 file_values.close()
@@ -11,7 +21,6 @@ for item in data["values"]:
     result = item["value"]
     values[number] =result
 
-name_file_tests = input("Введите файл с тестами ")
 file_tests = open(name_file_tests)
 tests = json.load(file_tests)
 file_tests.close()
@@ -28,7 +37,6 @@ def podstanovka_value(test):
 for test in tests["tests"]:
     podstanovka_value(test)
 
-name_file_output = input("Введите файл для результатов: ")
 file_output = open(name_file_output, "w")
 json.dump(tests, file_output, indent=2)
 file_output.close()
